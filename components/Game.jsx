@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/app.module.css";
+import confetti from "canvas-confetti";
 
 export default function Game() {
   const [response, setResponse] = useState("");
@@ -15,6 +16,7 @@ export default function Game() {
     if (timeLeft === 0) {
       console.log("TIME LEFT IS 0");
       setTimeLeft(null);
+      confetti();
     }
 
     // exit early when we reach 0
@@ -47,15 +49,16 @@ export default function Game() {
     console.log(response);
 
     if (response == a * b) {
-      setMessage("Bonne réponse !");
+      setMessage("Great!");
       setScore(score + 1);
       setColor("#36da75");
 
       setA(Math.round(Math.random() * (9 - 2) + 2));
       setB(Math.round(Math.random() * (9 - 2) + 2));
     } else {
-      setMessage("Essaye encore");
+      setMessage("Ouch...");
       setErrors(errors + 1);
+      setColor("#ff6262");
     }
 
     input.value = "";
@@ -65,7 +68,7 @@ export default function Game() {
     <div className={styles.game}>
       <form onSubmit={(event) => sendResponse(event)}>
         <label className={styles.label}>
-          {a == 0 ? "" : `${a} x ${b}`}
+          {a} x {b}
           {timeLeft == null ? (
             ""
           ) : (
@@ -76,23 +79,33 @@ export default function Game() {
               name="response"
               onChange={(event) => setResponse(event.target.value)}
               required
+              autoFocus
             />
           )}
         </label>
       </form>
-      {timeLeft < 0 ? <h3 style={{ color: `${color}` }}>{message}</h3> : ""}
+      {timeLeft > 0 ? <h3 style={{ color: `${color}` }}>{message}</h3> : ""}
 
       <div className={styles.data}>
-        <p className={styles.number}>Score: {score}</p>
         <p className={styles.number}>
-          {errors <= 1 ? "Error" : "Errors"} {errors}
+          <strong>Score:</strong> {score}
         </p>
+        <p className={styles.number}>
+          {errors <= 1 ? <strong>Error:</strong> : <strong>Errors:</strong>}{" "}
+          {errors}
+        </p>
+        {timeLeft > 0 ? (
+          <p className={styles.number}>
+            <strong>Time left:</strong> {timeLeft} sec
+          </p>
+        ) : (
+          ""
+        )}
       </div>
       <br />
       <button className={styles.start} onClick={start}>
         {timeLeft > 0 ? "Restart" : "Start"}
       </button>
-      {timeLeft > 0 ? <p>⌛{timeLeft}</p> : ""}
     </div>
   );
 }
