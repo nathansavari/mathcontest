@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from "../styles/app.module.css";
 import confetti from "canvas-confetti";
 
@@ -11,6 +11,8 @@ export default function Game() {
   const [message, setMessage] = useState("");
   const [timeLeft, setTimeLeft] = useState(null);
   const [color, setColor] = useState("#ff6262");
+
+  const ref = useRef(null);
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -37,6 +39,8 @@ export default function Game() {
   const start = () => {
     setA(Math.round(Math.random() * (9 - 2) + 2));
     setB(Math.round(Math.random() * (9 - 2) + 2));
+
+    ref.current?.focus();
 
     setTimeLeft(60);
     setScore(0);
@@ -73,6 +77,7 @@ export default function Game() {
             ""
           ) : (
             <input
+              ref={ref}
               className={styles.input}
               id="input"
               type="number"
