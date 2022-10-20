@@ -32,10 +32,40 @@
   width: 30vw;
   height: 3rem;
   font-size: large;
+  border: 1px solid rgb(230, 200, 173);
 }
 
 .input:focus {
-  border: none;
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.input[type="number"]::-webkit-inner-spin-button,
+.input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.number {
+  margin: 1rem;
+}
+
+.start {
+  width: 5rem;
+  height: 3rem;
+  background-color: #ffffff;
+  border: 1px solid rgb(180, 180, 180);
+}
+
+.start:hover {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
 .footer {
@@ -61,6 +91,8 @@
   border-bottom: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
+  font-size: larger;
+  font-weight: 500;
 }
 
 .title a {

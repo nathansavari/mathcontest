@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/app.module.css";
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Game from "../components/Game";
 

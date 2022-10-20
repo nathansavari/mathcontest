@@ -8,7 +8,8 @@ export default function Game() {
   const [a, setA] = useState(0);
   const [b, setB] = useState(0);
   const [message, setMessage] = useState("");
-  const [timeLeft, setTimeLeft] = useState(null);
+  const [timeLeft, setTimeLeft] = useState<any | null>(null);
+  const [color, setColor] = useState("#ff6262");
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -38,14 +39,17 @@ export default function Game() {
     setTimeLeft(60);
     setScore(0);
     setErrors(0);
+    setMessage("");
   };
 
-  const sendResponse = async (event) => {
+  const sendResponse = async (event: any) => {
     event.preventDefault();
+    console.log(response);
 
     if (response == a * b) {
       setMessage("Bonne réponse !");
       setScore(score + 1);
+      setColor("#36da75");
 
       setA(Math.round(Math.random() * (9 - 2) + 2));
       setB(Math.round(Math.random() * (9 - 2) + 2));
@@ -71,18 +75,24 @@ export default function Game() {
               type="number"
               name="response"
               onChange={(event) => setResponse(event.target.value)}
+              required
             />
           )}
         </label>
       </form>
-      <h3>{message}</h3>
-      <p>Score: {score}</p>
+      {timeLeft < 0 ? <h3 style={{ color: `${color}` }}>{message}</h3> : ""}
 
-      <p>
-        {errors <= 1 ? "Error" : "Errors"} {errors}
-      </p>
-      <button onClick={start}>{timeLeft > 0 ? "Restart" : "Start"}</button>
-      <p>{timeLeft}</p>
+      <div className={styles.data}>
+        <p className={styles.number}>Score: {score}</p>
+        <p className={styles.number}>
+          {errors <= 1 ? "Error" : "Errors"} {errors}
+        </p>
+      </div>
+      <br />
+      <button className={styles.start} onClick={start}>
+        {timeLeft > 0 ? "Restart" : "Start"}
+      </button>
+      {timeLeft > 0 ? <p>⌛{timeLeft}</p> : ""}
     </div>
   );
 }
