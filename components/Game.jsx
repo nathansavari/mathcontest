@@ -8,7 +8,7 @@ export default function Game() {
   const [a, setA] = useState(0);
   const [b, setB] = useState(0);
   const [message, setMessage] = useState("");
-  const [timeLeft, setTimeLeft] = useState<any | null>(null);
+  const [timeLeft, setTimeLeft] = useState(null);
   const [color, setColor] = useState("#ff6262");
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function Game() {
     setMessage("");
   };
 
-  const sendResponse = async (event: any) => {
+  const sendResponse = async (event) => {
     event.preventDefault();
     console.log(response);
 
