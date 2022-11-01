@@ -63,6 +63,7 @@ export default function Game() {
       setMessage("Ouch...");
       setErrors(errors + 1);
       setColor("#ff6262");
+      setScore(score - 1);
     }
 
     input.value = "";
@@ -73,9 +74,7 @@ export default function Game() {
       <form onSubmit={(event) => sendResponse(event)}>
         <label className={styles.label}>
           {a} x {b}
-          {timeLeft == null ? (
-            ""
-          ) : (
+          {timeLeft !== null && (
             <input
               ref={ref}
               className={styles.input}

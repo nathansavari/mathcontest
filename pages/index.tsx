@@ -16,6 +16,15 @@ const Home: NextPage = () => {
       <Header />
       <main className={styles.main}>
         <Game />
+        <br />
+        <p className={styles.rule}>
+          MathContest is a simple game. You just need to calculate the product
+          of the two numbers above.
+        </p>
+        <ul>
+          <li>Good answer : +1 point</li>
+          <li>Bad answer : -1 point</li>
+        </ul>
       </main>
     </div>
   );
