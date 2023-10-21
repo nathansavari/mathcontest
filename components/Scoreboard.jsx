@@ -3,35 +3,48 @@ import axios from "axios";
 
 export default function Scoreboard({ roomId }) {
   const [topScores, setTopScores] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // New state for loading status
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!roomId) return;
 
-    setIsLoading(true); // Set loading to true before API call
+    setIsLoading(true);
 
     axios
       .get(`/api/getTopScores?roomId=${roomId}`)
       .then((response) => {
         setTopScores(response.data);
-        setIsLoading(false); // Set loading to false after data is received
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log("Error fetching top scores");
-        setIsLoading(false); // Set loading to false if there's an error
+        setIsLoading(false);
       });
   }, [roomId]);
+
+  const getPodiumEmoji = (index) => {
+    switch (index) {
+      case 0:
+        return "🥇";
+      case 1:
+        return "🥈";
+      case 2:
+        return "🥉";
+      default:
+        return "";
+    }
+  };
 
   return (
     <div>
       <h3>Top Scores {roomId} </h3>
-      {isLoading ? ( // Conditional rendering based on isLoading
+      {isLoading ? (
         <p>Loading...</p>
       ) : (
         <ul>
           {topScores.map((scoreItem, index) => (
             <li key={index}>
-              <strong>{scoreItem.username}</strong>: {scoreItem.score}
+              {getPodiumEmoji(index)} {scoreItem.username}: {scoreItem.score}
             </li>
           ))}
         </ul>
