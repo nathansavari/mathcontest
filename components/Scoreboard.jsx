@@ -37,7 +37,7 @@ export default function Scoreboard({ roomId }) {
 
   return (
     <div>
-      <h3>Top Scores {roomId} </h3>
+      <h3>Top Scores of the room</h3>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
