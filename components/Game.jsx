@@ -115,11 +115,13 @@ export default function Game({ roomId }) {
               ref={ref}
               className={styles.input}
               id="input"
-              type="text"
-              inputmode="numeric"
+              type="number"
               pattern="\d*"
               name="response"
               onChange={(event) => setResponse(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") event.target.blur();
+              }}
               required
               autoFocus
             />
