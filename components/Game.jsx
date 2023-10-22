@@ -117,8 +117,8 @@ export default function Game({ roomId }) {
               id="input"
               type="number"
               min="0"
+              pattern="\d*"
               inputmode="numeric"
-              pattern="[0-9]*"
               name="response"
               onChange={(event) => setResponse(event.target.value)}
               required
