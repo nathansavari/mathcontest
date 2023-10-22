@@ -115,7 +115,9 @@ export default function Game({ roomId }) {
               ref={ref}
               className={styles.input}
               id="input"
-              type="tel"
+              type="number"
+              min="0"
+              inputmode="numeric"
               pattern="[0-9]*"
               name="response"
               onChange={(event) => setResponse(event.target.value)}
