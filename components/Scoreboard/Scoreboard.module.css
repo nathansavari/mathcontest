@@ -1,0 +1,40 @@
+/* Scoreboard.module.css */
+
+.container {
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.loadingText {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+}
+
+.scoreList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.scoreItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.podiumEmoji {
+  font-size: 20px;
+  margin-right: 10px;
+}

@@ -5,10 +5,7 @@ export default async function handler(req, res) {
     return res.status(405).end();
   }
 
-  const client = new MongoClient(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  const client = new MongoClient(process.env.MONGO_URI);
 
   const { roomId } = req.query;
 

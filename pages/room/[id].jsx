@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "../../styles/app.module.css";
 import Header from "../../components/Header";
 import Game from "../../components/Game";
-import Scoreboard from "../../components/Scoreboard";
+import Scoreboard from "../../components/Scoreboard/Scoreboard";
 
 import { useRouter } from "next/router";
 
@@ -22,13 +22,6 @@ const Room = () => {
         <Game roomId={router.query.id} />
         <Scoreboard roomId={router.query.id} />
         <br />
-        <p className={styles.rule}>
-          MathContest is a simple game. You just need to calculate the product
-          of the two numbers above.
-        </p>
-        <ul>
-          <li>Good answer : +1 point</li>
-        </ul>
       </main>
     </div>
   );

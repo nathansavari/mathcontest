@@ -1,7 +1,3 @@
-.container {
-  padding: 0 2rem;
-}
-
 .main {
   min-height: 80vh;
   padding: 2rem 0;
@@ -76,6 +72,10 @@
   padding: 1rem 10rem;
 }
 
+.rulediv {
+  padding: 0 10rem;
+}
+
 .footer {
   display: flex;
   flex: 1;
@@ -95,12 +95,16 @@
 .header {
   display: flex;
   flex: 1;
-  padding: 1rem 0;
+  padding: 1rem;
   border-bottom: 1px solid #eaeaea;
-  justify-content: center;
   align-items: center;
   font-size: larger;
   font-weight: 500;
+}
+
+.logo {
+  color: #db5620;
+  font-weight: 600;
 }
 
 .title a {
@@ -183,10 +187,18 @@
   .rule {
     padding: 1rem 1rem;
   }
+
+  .rulediv {
+    padding: 0;
+  }
 }
 
 @media (max-width: 900px) {
   .rule {
     padding: 1rem 1rem;
+  }
+
+  .rulediv {
+    padding: 0;
   }
 }

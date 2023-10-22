@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import styles from "./Scoreboard.module.css";
 
 export default function Scoreboard({ roomId }) {
   const [topScores, setTopScores] = useState([]);
@@ -36,15 +37,18 @@ export default function Scoreboard({ roomId }) {
   };
 
   return (
-    <div>
-      <h3>Top Scores of the room</h3>
+    <div className={styles.container}>
+      <h3 className={styles.header}>Scoreboard</h3>
       {isLoading ? (
-        <p>Loading...</p>
+        <p className={styles.loadingText}>Loading...</p>
       ) : (
-        <ul>
+        <ul className={styles.scoreList}>
           {topScores.map((scoreItem, index) => (
-            <li key={index}>
-              {getPodiumEmoji(index)} {scoreItem.username}: {scoreItem.score}
+            <li key={index} className={styles.scoreItem}>
+              <span className={styles.podiumEmoji}>
+                {getPodiumEmoji(index)}
+              </span>
+              {scoreItem.username}: <strong>{scoreItem.score}</strong>
             </li>
           ))}
         </ul>

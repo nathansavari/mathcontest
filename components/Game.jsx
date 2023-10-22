@@ -124,9 +124,6 @@ export default function Game({ roomId }) {
         )}
       </div>
       <br />
-      {/* <button className={styles.start} onClick={start}>
-        {timeLeft > 0 ? "Restart" : "Start"}
-      </button> */}
       {!gameStarted && (
         <div>
           <input
