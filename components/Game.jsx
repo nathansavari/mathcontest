@@ -14,6 +14,7 @@ export default function Game({ roomId }) {
   const [color, setColor] = useState("#ff6262");
   const [username, setUsername] = useState("");
   const [gameStarted, setGameStarted] = useState(false);
+  const [shake, setShake] = useState(false);
 
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
@@ -68,12 +69,13 @@ export default function Game({ roomId }) {
 
   const sendResponse = async (event) => {
     event.preventDefault();
-    console.log(response);
 
     if (response == a * b) {
       setMessage("Great!");
       setScore(score + 1);
       setColor("#36da75");
+
+      correct();
 
       setA(Math.round(Math.random() * (9 - 2) + 2));
       setB(Math.round(Math.random() * (9 - 2) + 2));
@@ -81,9 +83,26 @@ export default function Game({ roomId }) {
       setMessage("Ouch...");
       setErrors(errors + 1);
       setColor("#ff6262");
+      triggerShake();
+      wrong();
     }
 
     input.value = "";
+  };
+
+  const triggerShake = () => {
+    setShake(true);
+    setTimeout(() => setShake(false), 200); // Match the duration of the animation
+  };
+
+  const wrong = () => {
+    const audio = new Audio("/wrong.mp3");
+    audio.play();
+  };
+
+  const correct = () => {
+    const audio = new Audio("/correct.mp3");
+    audio.play();
   };
 
   return (
@@ -105,7 +124,16 @@ export default function Game({ roomId }) {
           )}
         </label>
       </form>
-      {timeLeft > 0 ? <h3 style={{ color: `${color}` }}>{message}</h3> : ""}
+      {timeLeft > 0 ? (
+        <h3
+          className={`${styles.message} ${shake ? styles.shake : ""}`}
+          style={{ color: `${color}` }}
+        >
+          {message}
+        </h3>
+      ) : (
+        ""
+      )}
 
       <div className={styles.data}>
         <p className={styles.number}>
