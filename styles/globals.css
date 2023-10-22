@@ -73,7 +73,8 @@ li {
 }
 
 button {
-  padding: 10px 20px;
+  padding: 5px 10px;
+  margin-left: 10px;
   font-size: 18px;
   border: none;
   border-radius: 5px;
@@ -90,12 +91,4 @@ button:hover {
 button:disabled {
   background-color: #c0c0c0;
   cursor: not-allowed;
-}
-
-input[type="text"] {
-  padding: 10px;
-  margin-right: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #d0d0d0;
 }

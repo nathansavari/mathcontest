@@ -38,3 +38,23 @@
   font-size: 20px;
   margin-right: 10px;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .header {
+    font-size: 20px;
+  }
+
+  .scoreItem {
+    padding: 5px;
+  }
+
+  .podiumEmoji {
+    font-size: 16px;
+  }
+}
