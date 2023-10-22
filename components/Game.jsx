@@ -117,6 +117,7 @@ export default function Game({ roomId }) {
               id="input"
               type="number"
               inputmode="decimal"
+              pattern="\d*"
               name="response"
               onChange={(event) => setResponse(event.target.value)}
               required
