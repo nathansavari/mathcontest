@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       This game is open-source
       <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+        href="https://github.com/nathansavari/mathcontest"
         target="_blank"
         rel="noopener noreferrer"
       >
