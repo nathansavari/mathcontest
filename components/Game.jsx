@@ -128,7 +128,6 @@ export default function Game({ roomId }) {
               id="input"
               type="tel"
               pattern="\d*"
-              inputmode="numeric"
               name="response"
               onChange={(event) => {
                 setResponse(event.target.value);
