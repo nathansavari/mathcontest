@@ -174,6 +174,7 @@ export default function Game({ roomId }) {
             placeholder="Enter Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            style={{ marginRight: "10px" }}
           />
           <button
             onClick={() => {
@@ -182,7 +183,7 @@ export default function Game({ roomId }) {
               start(); // This is your start game function
             }}
           >
-            Start Game
+            Play
           </button>
         </div>
       )}

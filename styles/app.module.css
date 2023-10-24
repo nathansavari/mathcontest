@@ -68,12 +68,8 @@
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
-.rule {
-  padding: 1rem 10rem;
-}
-
 .rulediv {
-  padding: 0 10rem;
+  padding: 1rem 16rem;
 }
 
 .footer {
@@ -178,6 +174,10 @@
   margin-left: 0.5rem;
 }
 
+.scoreboardContainer {
+  min-height: 300px; /* Adjust this value as needed */
+}
+
 @keyframes shake {
   0% {
     transform: translateX(0);
@@ -206,21 +206,13 @@
     flex-direction: column;
   }
 
-  .rule {
-    padding: 1rem 1rem;
-  }
-
   .rulediv {
-    padding: 0;
+    padding: 1rem 1rem;
   }
 }
 
 @media (max-width: 900px) {
-  .rule {
-    padding: 1rem 1rem;
-  }
-
   .rulediv {
-    padding: 0;
+    padding: 1rem 1rem;
   }
 }

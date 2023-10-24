@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import styles from "../styles/app.module.css";
 import Header from "../components/Header";
 import Image from "next/image";
-import Ninja from "../public/ninja.png";
+import Logo from "../public/logo-mathcontest.svg";
 
 const Home: NextPage = () => {
   function Room() {
@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       router.push(`/room/${randomId}`);
     };
 
-    return <button onClick={createRoom}>Create a Room</button>;
+    return <button onClick={createRoom}>Start to Play</button>;
   }
 
   return (
@@ -29,14 +29,18 @@ const Home: NextPage = () => {
       <Header />
       <main className={styles.main}>
         <br />
+        <Image src={Logo} width={50} height={50} alt="logo-mathcontest" />
+
+        <h1>The best game for practicing your multiplication tables</h1>
+        <p>
+          Mathcontest is a simple game. You just need to calculate the product
+          of two numbers.
+        </p>
+
         <Room />
         <div className={styles.rulediv}>
-          <p className={styles.rule}>
-            <strong>
-              MathContest is a simple game. You just need to calculate the
-              product of the two numbers above.
-            </strong>
-          </p>
+          <h2>About</h2>
+
           <p className={styles.rule}>
             Dive into a world where numbers dance and you&apos;re the
             choreographer! Welcome to MathContest, the game that transforms

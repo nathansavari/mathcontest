@@ -41,6 +41,8 @@ export default function Scoreboard({ roomId }) {
       <h3 className={styles.header}>Scoreboard</h3>
       {isLoading ? (
         <p className={styles.loadingText}>Loading...</p>
+      ) : topScores.length === 0 ? (
+        <p className={styles.emptyText}>No champions yet! 🥇</p>
       ) : (
         <ul className={styles.scoreList}>
           {topScores.map((scoreItem, index) => (
