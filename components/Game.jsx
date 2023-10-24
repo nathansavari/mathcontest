@@ -126,7 +126,7 @@ export default function Game({ roomId }) {
               ref={ref}
               className={styles.input}
               id="input"
-              type="number"
+              type="tel"
               pattern="\d*"
               inputmode="numeric"
               name="response"
