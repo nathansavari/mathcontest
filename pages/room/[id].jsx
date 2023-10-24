@@ -12,7 +12,7 @@ const Room = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Room: {router.query.id}</title>
+        <title>MathContest - Private Room</title>
         <meta name="description" content="Test your math skills" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
