@@ -15,6 +15,7 @@ export default function Game({ roomId }) {
   const [username, setUsername] = useState("");
   const [gameStarted, setGameStarted] = useState(false);
   const [shake, setShake] = useState(false);
+  const [userTyped, setUserTyped] = useState(false);
 
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
@@ -24,6 +25,17 @@ export default function Game({ roomId }) {
   }, []);
 
   const ref = useRef(null);
+
+  useEffect(() => {
+    if (userTyped) {
+      const answer = a * b;
+      const expectedLength = answer.toString().length;
+      if (response.length === expectedLength) {
+        sendResponse();
+        setUserTyped(false);
+      }
+    }
+  }, [response, a, b, userTyped]);
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -67,9 +79,8 @@ export default function Game({ roomId }) {
     setMessage("");
   };
 
-  const sendResponse = async (event) => {
-    event.preventDefault();
-
+  const sendResponse = (event) => {
+    if (event) event.preventDefault();
     if (response == a * b) {
       setMessage("Great!");
       setScore(score + 1);
@@ -119,7 +130,10 @@ export default function Game({ roomId }) {
               pattern="[0-9]*"
               inputmode="numeric"
               name="response"
-              onChange={(event) => setResponse(event.target.value)}
+              onChange={(event) => {
+                setResponse(event.target.value);
+                setUserTyped(true);
+              }}
               required
               autoFocus
             />
