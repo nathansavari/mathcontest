@@ -8,7 +8,7 @@ export default function Header() {
     <header className={styles.header}>
       <Image src={Logo} width={25} height={25} alt="logo-mathcontest" />
       <Link href={"/"} className={styles.logo}>
-        Mathcontest
+        Mathcontest&trade;
       </Link>
     </header>
   );

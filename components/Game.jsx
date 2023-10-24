@@ -167,7 +167,7 @@ export default function Game({ roomId }) {
         )}
       </div>
       <br />
-      {!gameStarted && (
+      {!gameStarted && username === "" && (
         <div>
           <input
             type="text"
@@ -178,9 +178,14 @@ export default function Game({ roomId }) {
           />
           <button
             onClick={() => {
-              localStorage.setItem("username", username);
-              setGameStarted(true);
-              start(); // This is your start game function
+              if (username.trim() !== "") {
+                // Ensure username is not empty or just spaces
+                localStorage.setItem("username", username);
+                setGameStarted(true);
+                start(); // This is your start game function
+              } else {
+                alert("Please enter a username");
+              }
             }}
           >
             Play
