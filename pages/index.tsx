@@ -72,15 +72,15 @@ const Home: NextPage = () => {
           <div className={styles.testimonials}>
             <div className={styles.testimonial}>
               <strong>Adam</strong>
-              <p>"This game has changed how I spend my free time!"</p>
+              <p>&quot;This game has changed how I spend my free time!&quot;</p>
             </div>
             <div className={styles.testimonial}>
               <strong>Laeny</strong>
-              <p>"I hide in the toilet to play"</p>
+              <p>&quot;I hide in the toilet to play&quot;</p>
             </div>
             <div className={styles.testimonial}>
               <strong>Jane</strong>
-              <p>"Surprisingly funnier than I thought"</p>
+              <p>&quot;Surprisingly funnier than I thought&quot;</p>
             </div>
           </div>
         </div>
