@@ -23,7 +23,10 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <Head>
         <title>Math Contest</title>
-        <meta name="description" content="Testez votre cerveau." />
+        <meta
+          name="description"
+          content="The best game for practicing your multiplication tables"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
