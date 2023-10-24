@@ -167,7 +167,7 @@ export default function Game({ roomId }) {
         )}
       </div>
       <br />
-      {!gameStarted && username === "" && (
+      {!gameStarted && (
         <div>
           <input
             type="text"
