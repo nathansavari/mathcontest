@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "../styles/app.module.css";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import Image from "next/image";
 import Logo from "../public/logo-mathcontest.svg";
 
@@ -30,18 +31,18 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <br />
         <Image src={Logo} width={50} height={50} alt="logo-mathcontest" />
-
-        <h1>The best game for practicing your multiplication tables</h1>
-        <p>
-          Mathcontest is a simple game. You just need to calculate the product
-          of two numbers.
-        </p>
+        <div className={styles.about}>
+          <h1>The best game for practicing your multiplication tables</h1>
+          <p>
+            Mathcontest is a simple game. You just need to calculate the product
+            of two numbers.
+          </p>
+        </div>
 
         <Room />
-        <div className={styles.rulediv}>
+        <div className={styles.about}>
           <h2>About</h2>
-
-          <p className={styles.rule}>
+          <p>
             Dive into a world where numbers dance and you&apos;re the
             choreographer! Welcome to MathContest, the game that transforms
             multiplication into a thrilling adventure. As you step into the
@@ -50,14 +51,14 @@ const Home: NextPage = () => {
             many can you conquer?
           </p>
 
-          <p className={styles.rule}>
+          <p>
             Every correct answer fuels your journey towards the grand confetti
             explosion, a celebration of your numerical nimbleness. But the
             battle doesn&apos;t end here; your scores are saved in the halls of
             numeric glory, beckoning you to beat your own best the next time
             around.
           </p>
-          <p className={styles.rule}>
+          <p>
             Not just a game, but a battleground where every correct answer is a
             step towards mastering multiplication! Whether you&apos;re a math
             enthusiast or a numbers newbie, we promise a whirlpool of fun,
@@ -66,7 +67,25 @@ const Home: NextPage = () => {
             multiply, and conquer!
           </p>
         </div>
+        <div className={styles.community}>
+          <h2>Community</h2>
+          <div className={styles.testimonials}>
+            <div className={styles.testimonial}>
+              <strong>Adam</strong>
+              <p>"This game has changed how I spend my free time!"</p>
+            </div>
+            <div className={styles.testimonial}>
+              <strong>Laeny</strong>
+              <p>"I hide in the toilet to play"</p>
+            </div>
+            <div className={styles.testimonial}>
+              <strong>Jane</strong>
+              <p>"Surprisingly funnier than I thought"</p>
+            </div>
+          </div>
+        </div>
       </main>
+      <Footer />
     </div>
   );
 };
