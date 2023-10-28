@@ -29,7 +29,7 @@ export default async function handler(req, res) {
         },
       },
       { $sort: { score: -1 } },
-      { $limit: 10 },
+      { $limit: 15 },
     ];
 
     const topScores = await collection.aggregate(pipeline).toArray();
